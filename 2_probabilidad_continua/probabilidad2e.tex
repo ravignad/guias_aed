@@ -1,0 +1,93 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[colorlinks=true, linkcolor=blue] {hyperref}
+\usepackage{units}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[margin=1.25in]{geometry}
+
+
+
+\pdfinfo{
+  /Title    (Probabilidad continua)
+  /Author   (Diego Ravignani)
+  /Creator  ()
+  /Producer ()
+  /Subject  (Análisis estadístico de datos)
+  /Keywords ()
+}
+
+\title{Probabilidad continua}
+\author{Análisis estadístico de datos}
+
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item Calcular la media y la desviación estándar de una variable aleatoria distribuida uniformemente entre los límites a y b. Comparar la desviación estándar con el semiancho $(b-a)/2$.
+
+\item Mostrar que la identidad  $\mathrm{Var}(X) = \mathrm{E}(X^2) - \mathrm{E}(X)^2$ es válida para una distribución continua.
+
+\item Considerar dos variables continuas independientes idénticamente distribuidas (iid) X e Y. Si la media de ambas variables es $\mu$ y la varianza $\sigma^2$, mostrar que $\mathrm{E}(X+Y) = 2 \, \mu$ y $\mathrm{Var}(X+Y) = 2 \, \sigma^2$.  
+
+\item Simular 1000 eventos distribuidos uniformemente entre 0 y 25. A partir de los datos construir un histogramas frecuencia y otro de densidad con 10 bines de igual ancho. Comparar ambos histogramas la función de densidad de probabilidad uniforme. Comparar la media y la desviación estándar de la muestra con los valores correspondientes de la distribución uniforme. 
+% uniform.C
+
+% Central limit theorem - continuous variable 
+% \item Simulate 10 continuous variables $x_i$ distributed uniformly between 0 and 1 and compute their sum $y = \sum_{i=1}^{10} x_i$. Repeat this procedure $10^4$ times and construct a frequency histogram of the variable $y$. Compare the relative frequency histogram of the variable $y$ with a Gaussian distribution with suitable parameters. 
+% script sumu.C
+
+% Central limit theorem - discrete variable
+\item  Simular 10 variables discretas $X_i$ que siguen una distribución de Poisson con parámetro $\mu=1.7$ y calcular su suma $Y = \sum_{i=1}^{10} X_i$. Repetir este procedimiento 1000 veces para contruir un histograma de frecuencia de la variable $Y$. Comparar el histograma con una distribución Gaussiana con parámetros adecuados. Graficar el histograma y la distribución Gaussiana. \emph{Nota: Calcular los parámetros de la Gaussiana a partir de la media y varianza de las $X_i$. }
+
+% PDF of a CDF
+\item Simular una variable normal estándar $X$. Si el resultado de la simulación es $x$, calcular con la función de distribución acumulada la probabilidad $p = F(x) = P(X \le x)$. Repetir la simulación 1000 veces, calcular la probabilidad $p$ en cada iteración y llenar un histograma con su valor. Comparar el histograma de $p$ con una función de densidad de probabilidad adecuada.  
+
+% Central limit theorem exception
+% \item Simulate a sample of 10 random variables $x_i$ following a Cauchy distribution with location parameter $x_0=0$ and scale $\gamma=1$. Calculate its average, $z = \sum_{i=1}^{10} x_i/10$. Repeat the simulation $10^4$ times and build the corresponding frequency histogram and draw the probability density function of z.
+% cauchy2.C
+
+% Exponential problem - discrete
+% \item Simular el lanzamiento de un dado. Contar cuantos lanzamientos son necesarios para obtener el número tres. Repitiendo la simulación 1000 veces, construir un histograma de frecuencia con el número de lanzamientos. Comparar el histograma con una distribución geométrica con un parámetro adecuado. 
+
+
+% Exponential problem - continuous
+% \item La CNEA produce el \href{http://enula.org/2018/02/radioisotopos-pieza-clave-de-la-medicina-nuclear/}{radioisotopo $^{99}$Mo} para tomografías PET. El $^{99}$Mo tiene una constante de decaimiento $\tau = \unit[66]{h}$. Establecer la probabilidad que un núcleo decaiga en la próxima hora. Dividir el intervalo $\unit[(0,150)]{h}$ en 150 bines de 1 hora cada uno. Siguiendo el método del ejercicio anterior, simular el número de pasos hasta que el núcleo decae. Repetir la simulación 1000 veces para construir un histograma de frecuencia del tiempo de decaimiento. Comparar el histograma con una distribución de probabilidad exponencial parametrizada por $\tau$.  
+
+
+% Histogram problem 1 - probabilty assignement
+% \item Simulate 1000 events following a uniform distribution between 0 and 1. Build a frequency histogram of 20 equidistant bins. Select a bin and count its entries. Repeat this exercise 1000 times, taking note of the number of the entries in the selected bin. With the 1000 numbers obtained in this way build a new frequency histogram. Plot the corresponding histogram of the relative frequency and compare with a suitable probability distribution function. Calculate the mean value and the variance of the sample and compare with the analytic values from the PDF. Compute the deviation of the number of entries obtained in the first iteration with respect to the mean expected from the PDF. Calculate how many standard deviations the number of entries in the first iteration deviates from the mean.
+% script histo.C
+
+\item Calcular analíticamente la media de una variable chi-cuadrado de dos grados de libertad a partir de su función de densidad de probabilidad. Integrando esta PDF, calcular la función de distribución acumulada. Evaluar la CDF 1 y 4 y relacionarla con la probabilidad de los intervalos de 1σ y 2σ de un variable normal. Graficar la función de distribución acumulada calculada y compararla con la provista por la librería scipy.
+
+% TP2: Distribución chi-cuadrado => lo entregamos en notebook
+% \item \textbf{(Para entregar)} Considerar 20 variables normales estándar $(X_1, \dots, X_{20})$ y hacer el cambio de variables $Y_i = X_i^2$. Identificar que función de densidad de probabilidad siguen las nuevas variables $Y_i$. Construir una nueva variable aleatoria $Z = \sum_{i=1}^{20} Y_i$. A continuación simular las 20 variables $X_i$ y calcular el valor $Z$ correspondiente. Repetir este proceso $10.000$ veces y hacer un histograma de frecuencias de $Z$. Comparar el histograma con una distribución chi-cuadrado y otra normal con parámetros apropiados. 
+
+
+% Histogramas
+% \begin{enumerate}
+
+  %  \item Considerar un distribución normal estándar. Dividir el intervalo $(-10, 10)$ en 11 bines de igual tamaño. Calcular la probilidad exacta de que un evento caiga en un bin con la integral de la distibución de probabilidad. Calcular la probabilidad aproximada con la distribución evaluada en el centro del bin. Graficar la probabilidad exacta y aproximada. En base a su diferencia decidir si la aproximación es buena o no. Repetir el ejercicio con 101 bines. 
+    % histo1.C
+
+   % \item Considerar el bin central ($x=0$) en el histograma del punto anterior con 11 bines. Calcular la probabilidad que un evento caiga en el bin central. Considerar un histograma de $\mu = 20$ eventos en promedio y la variable aleatoria k = {Número de eventos en el bin central}. Determinar la función de masa de probabilidad que sigue la variable k. Comparar esta distribución con una Gaussiana y graficar ambas distribuciones. 
+    % histo2.C
+
+% \end{enumerate}
+
+
+
+% Histogram problem 4 
+% \item Generate 1000 random variables distributed uniformly between 0 and 1. With the data fill a histogram of 50 equal sized bins. Estimate the number of expected entries in each bin according to the uniform PDF. Decide if the Poisson approximation for the number bin entries is valid. Calculate the histogram $\chi^2$. Repeat this simulation $10^4$ times and fill a histogram with the $\chi^2$ calculated in each simulation. Compare the histogram with a $\chi^2$ probability distribution function.
+% histo3.C
+
+ 
+
+\end{enumerate}
+
+\end{document}

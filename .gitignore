@@ -1,0 +1,11 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.out
+
+# PDF output - usually a bad idea to keep this in Git
+probabilidad*.pdf
+
+# SyncTeX
+*.synctex.gz
